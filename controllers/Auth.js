@@ -74,19 +74,19 @@ exports.postResetPassword = async (req, res, next) => {
     const { password, confirmPassword, token } = req.body;
 
     if (password !== confirmPassword) {
-      return res.status(400).json({ message: "The passwords entered do not match. Please try again." });
+      return res.status(400).json({ error: "The passwords entered do not match. Please try again." });
     }
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-      if (err) return res.status(401).json({ message: "Unauthorized access: Invalid Token." });
+      if (err) return res.status(401).json({ error: "Unauthorized access: Invalid Token." });
     });
     const decodedToken = jwt.decode(token);
 
     const user = await User.findById(decodedToken.id);
     const tokenMatched = token === user.token;
-    if (!tokenMatched) return res.status(401).json({ message: "Unauthorized access: Token not found." });
+    if (!tokenMatched) return res.status(401).json({ error: "Unauthorized access: Token not found." });
 
     const isMatched = await bcrypt.compare(password, user.password);
-    if (isMatched) return res.status(401).json({ message: "New password cannot be the same as your old password." });
+    if (isMatched) return res.status(401).json({ error: "New password cannot be the same as your old password." });
 
     const hashed = HelperController.HashPassword(password);
     user.password = hashed;
