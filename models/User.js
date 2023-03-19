@@ -20,6 +20,10 @@ const userSchema = new Schema({
     required: false,
     default: null
   },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
