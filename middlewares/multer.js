@@ -7,6 +7,7 @@ require("dotenv").config();
 // create s3 instance using S3Client 
 // (this is how we create s3 instance in v3)
 const s3 = new S3Client({
+  endpoint: "https://wild-erin-cape-buffalo-slip.cyclic.app",
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
