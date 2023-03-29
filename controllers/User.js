@@ -19,7 +19,7 @@ exports.patchEditPorfile = async (req, res, next) => {
     //     console.log(`File upload failed: ${error}`);
     //   });
     console.log("Hello");
-    const fileUrl = req.file.location;
+    const fileUrl = req.file;
     res.status(200).json({ message: fileUrl })
 
   } catch (error) {
