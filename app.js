@@ -9,6 +9,11 @@ require("./middlewares/common")(app);
 // Routes
 require("./routes")(app);
 
+app.post("/upload", (req, res, next) => {
+  res.status(200).json({ message: "EndPoint Hit!" })
+})
+
+
 const main = async () => {
   try {
     await mongoose.connect("mongodb+srv://zero:GfeJdzosNBympCX3@zero.2mrnend.mongodb.net/SnapShop?retryWrites=true&w=majority");
