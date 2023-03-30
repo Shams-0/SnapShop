@@ -7,6 +7,7 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  lastName: String,
   email: {
     type: String,
     required: true
@@ -15,6 +16,12 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  phoneNumber: String,
+  gender: String,
+  city: String,
+  state: String,
+  country: String,
+  bio: String,
   token: {
     type: String,
     required: false,
