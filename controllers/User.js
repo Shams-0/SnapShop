@@ -11,7 +11,7 @@ exports.getProfile = async (req, res, next) => {
       city: user.city, state: user.state, country: user.country, bio: user.bio
     }
 
-    res.status(200).json({ message: "Endpoint hit!", tempUser })
+    res.status(200).json({ message: "Endpoint hit!", user: tempUser })
   } catch (error) {
     console.log(error);
   }
@@ -21,12 +21,15 @@ exports.getProfile = async (req, res, next) => {
 exports.postEditProfile = async (req, res, next) => {
 
   try {
+
     const id = req.params.id;
-    const { name, lname, number, gender, city, state, country, bio } = req.body;
+    const { fname, lname, number, gender, city, state, country, bio } = req.body;
+
     const user = await User.findById(id).populate("order");
-    console.log(user);
+    console.log(fname, lname, number, gender, city, state, country, bio);
+
     if (user) {
-      user.name = name;
+      user.name = fname;
       user.lastName = lname;
       user.phoneNumber = number;
       user.gender = gender;
