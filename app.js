@@ -16,7 +16,7 @@ app.post("/upload", (req, res, next) => {
 
 const main = async () => {
   try {
-    await mongoose.connect("mongodb+srv://zero:Kffoy18wQL27nYYC@zero.9rituyo.mongodb.net/SnapShop?retryWrites=true&w=majority");
+    await mongoose.connect("mongodb+srv://zero:WLITUXwcRzIMcHOo@zero.j29pn.mongodb.net/SnapShop?retryWrites=true&w=majority");
     console.log("Connect to database!");
     app.listen("3000");
     console.log("Server started on Port 3000");
@@ -25,3 +25,5 @@ const main = async () => {
   }
 }
 main();
+
+mongodb+srv://zero:Kffoy18wQL27nYYC@zero.9rituyo.mongodb.net/SnapShop?retryWrites=true&w=majority
