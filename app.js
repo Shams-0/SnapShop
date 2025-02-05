@@ -13,6 +13,10 @@ app.post("/upload", (req, res, next) => {
   res.status(200).json({ message: "EndPoint Hit!" })
 })
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Hello, World!" });
+});
+
 
 const main = async () => {
   try {
