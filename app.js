@@ -17,11 +17,9 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello, World!" });
 });
 
-const uri = "mongodb+srv://zero:Kffoy18wQL27nYYC@zero.9rituyo.mongodb.net/SnapShop?retryWrites=true&w=majority";
-
 const main = async () => {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect("mongodb+srv://zero:Kffoy18wQL27nYYC@zero.j29pn.mongodb.net/SnapShop?retryWrites=true&w=majority");
     console.log("Connect to database!");
     app.listen("3000");
     console.log("Server started on Port 3000");
