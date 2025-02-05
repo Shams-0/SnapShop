@@ -29,5 +29,3 @@ const main = async () => {
   }
 }
 main();
-
-mongodb+srv://zero:Kffoy18wQL27nYYC@zero.9rituyo.mongodb.net/SnapShop?retryWrites=true&w=majority
